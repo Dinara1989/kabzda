@@ -1,21 +1,36 @@
 import React from 'react';
 
-const Rating = () => {
+type RatingPropsType = {
+    value: 0 | 1 | 2 | 3 | 4 | 5
+}
+
+const Rating = (props: RatingPropsType) => {
     return (
         <div>
-            <Star/>
-            <Star/>
-            <Star/>
-            <Star/>
-            <Star/>
+            <Star  selected={true}/>
+            <Star  selected={true}/>
+            <Star  selected={true}/>
+            <Star  selected={false}/>
+            <Star  selected={false}/>
         </div>
     );
 };
 
-function Star() {
-    return (
-        <span>Star </span>
-    )
+type StarPropsType = {
+    selected: boolean
 }
+function Star (props:StarPropsType) {
+    if (props.selected === true) {
+        return (
+            <span><b>Star </b></span>
+        )
+    } else {
+        return (
+            <span>Star </span>
+        )
+    }
+
+}
+
 
 export default Rating;
