@@ -2,17 +2,24 @@ import React from 'react';
 
 type AccordionPropsType = {
     titleValue: string
-    collapsed: boolean
+    collapsed?: boolean
 }
 const Accordion = (props: AccordionPropsType) => {
-        if(props.collapsed === false) {
-            return <div>
-                <AccordionTitle title={props.titleValue}/>
-                <AccordionBody/>
-            </div>
-        } else {
-            return <div></div>
-        }
+        //так писати небажано
+        // if(props.collapsed === true) {
+        //     return <div>
+        //         <AccordionTitle title={props.titleValue}/>
+        //         <AccordionBody/>
+        //     </div>
+        // } else {
+        //     return <div></div>
+        // }
+    //рефакторінг, коротка версія
+    return <div>
+        <AccordionTitle title={props.titleValue}/>
+        {/*//якщо не collapsed, тоді покажи*/}
+        { !props.collapsed && <AccordionBody/> }
+    </div>
 };
 
 type AccordionTitlePropsType = {
